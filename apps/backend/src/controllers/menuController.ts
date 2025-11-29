@@ -175,6 +175,7 @@ export const updateMenu = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { name, description, price, category, available, ingredients } = req.body;
+    console.log('Updating menu with ID:', id);
     
     await client.query('BEGIN');
 

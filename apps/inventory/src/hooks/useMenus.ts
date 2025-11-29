@@ -45,7 +45,9 @@ export const useMenus = () => {
     }
   };
 
-  const handleUpdateMenu = (id: number, updatedMenu: Omit<Menu, 'id'>) => {
+  const handleUpdateMenu = async (id: number, updatedMenu: Omit<Menu, 'id'>) => {
+    const result = await menuAPI.updateMenu(id, updatedMenu);
+    console.log('Menu updated:', result.data);
     setMenus(prev => 
       prev.map(menu => 
         menu.id === id ? { ...updatedMenu, id } : menu
